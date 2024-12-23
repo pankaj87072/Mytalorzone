@@ -2,10 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
-
-const authRoutes = require('./routes/auth');
-const cartRoutes = require('./routes/cart');
-const complaintsRoutes = require('./routes/complaints');
+const authRoutes = require('./api/auth');
+const cartRoutes = require('./api/cart');
+const complaintsRoutes = require('./api/complaints');
 const dbCheck = require('./middleware/dbCheck');
 
 dotenv.config();
@@ -43,11 +42,5 @@ app.use((err, req, res, next) => {
   });
 });
 
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
-process.on('unhandledRejection', (err) => {
-  console.error('Unhandled Rejection:', err);
-});
+// Export the handler for Vercel to use
+module.exports = app;
