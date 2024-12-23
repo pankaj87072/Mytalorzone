@@ -5,8 +5,7 @@
 /.pnp
 .pnp.js
 
-/ecommercebackend/node_modules
-/ecommercebackend/.env
+
 # testing
 /coverage
 
